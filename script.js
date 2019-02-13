@@ -1,17 +1,18 @@
+let yPos=0
 function setup() {
   createCanvas(400,300);
   background(25);
 }
-funstion draw() {
+function draw() {
+  background(25);
+  yPos=yPos-1;
+  if (yPos < 0) {
+    yPos = height;
+  }
+  ellipse(200,yPos,200,yPos);
 }
 
-function mouseDragged() {
-  strokeWeight(random(10));
-  stroke(255,255,255);
- line(mouseX,mouseY,pmouseX, pmouseY,);
-  line(width - mouseX, mouseY, width - pmouseX, mouseY);
-  
-} 
+
   
 /*ellipse(width/2, height/2, 100, 100);
   fill(64);
