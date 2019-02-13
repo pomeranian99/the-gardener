@@ -2,8 +2,11 @@ function setup() {
   createCanvas(400,300);
   background(25);
 }
-function draw() {
-  background(25);
+funstion draw() {
+}
+
+function mouseDragged() {
+  strokeWeight(random(10));
   stroke(255,255,255);
  line(mouseX,mouseY,pmouseX, pmouseY,);
   line(width - mouseX, mouseY, width - pmouseX, mouseY);
