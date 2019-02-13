@@ -1,15 +1,14 @@
-let yPos=0
+var y = 100;
 function setup() {
   createCanvas(400,300);
   background(25);
 }
 function draw() {
   background(25);
-  yPos=yPos-1;
-  if (yPos < 0) {
-    yPos = height;
-  }
-  ellipse(200,yPos,200,yPos);
+  ellipse(200,y,200,200);
+  y=y+1
+  if(y>500){
+    y=0}
 }
 
 
