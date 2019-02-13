@@ -1,14 +1,19 @@
-var y = 100;
+var y = 300;
+var x = -1;
 function setup() {
   createCanvas(400,300);
   background(25);
 }
 function draw() {
   background(25);
-  ellipse(200,y,200,200);
-  y=y+1
-  if(y>500){
-    y=0}
+  ellipse(200,200,y,y);
+  y=y + x;
+  if(y<=0){
+    x=1;
+  }
+  if(y>300){
+    x=-1;
+  }
 }
 
 
