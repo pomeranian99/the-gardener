@@ -1,21 +1,25 @@
-var y = 300;
-var x = -1;
+let angle = 0.0;
 function setup() {
-  createCanvas(400,300);
-  background(25);
-}
-function draw() {
-  background(25);
-  ellipse(200,200,y,y);
-  y=y + x;
-  if(y<=0){
-    x=1;
-  }
-  if(y>300){
-    x=-1;
-  }
+  createCanvas(100, 100, WEBGL);
 }
 
+function draw() {
+  background(200);
+if (second() % 2 === 0) {
+let c = cos(angle);  
+}
+  //increase the angle value using the most recent jitter value
+  
+  //use cosine to get a smooth CW and CCW motion when not jittering
+  
+  //move the shape to the center of the canvas
+  translate(width / 2, height / 2);
+  //apply the final rotation
+  rotate(c);
+  rect(0, 0, 180, 180);
+}
+
+}
 
   
 /*ellipse(width/2, height/2, 100, 100);
