@@ -5,7 +5,7 @@ function draw(){
 	background(240);
 
 	// move the origin to the pivot point
-
+	translate(width/2, height/2); 
 
 	// then rotate the grid around the pivot point by a
 	// number of degrees equal to the frame count of the sketch
@@ -13,5 +13,6 @@ function draw(){
 
 	// and draw the square at the origin
 	fill(0);
-	rect(0, 0, 100, 100);
+  circle(0,0,5);
+	rect(10, 10, 100, 100);
 }
