@@ -36,8 +36,8 @@ function draw(){
   fill(51, 119, 255, planterAlpha);
   
   // pulse the planter's alpha
-  planterAlpha += planterAlphaDir * 2;
-  if (planterAlphaDir < 0 && planterAlpha < 190) {
+  planterAlpha += planterAlphaDir * 3;
+  if (planterAlphaDir < 0 && planterAlpha < 120) {
     planterAlphaDir = planterAlphaDir * -1;
   };
   if (planterAlphaDir > 0 && planterAlpha > 254) {
@@ -52,13 +52,13 @@ function draw(){
     mainLocY = mainLocY + planterMoves[planterMoveDir][1] * cellSize;
     
     // if we've moved off the edge, wrap around 
-    if (mainLocX > canva * cellSize) {
+    if (mainLocX > (canva - 1) * cellSize) {
       mainLocX = 0;
     };
     if (mainLocX < 0){
       mainLocX = (canva - 1) * cellSize;
     };
-    if (mainLocY > canva * cellSize){
+    if (mainLocY > (canva - 1) * cellSize){
       mainLocY = 0;
     };
     if (mainLocY < 0){
