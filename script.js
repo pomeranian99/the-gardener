@@ -21,10 +21,11 @@ var planterMoves = [
   [-1, -1]
 ];
 
-var timeNow = millis(); // starting time for entire simulation
+var timeNow = 0;
 
 function setup(){
 	createCanvas(canva * cellSize, canva * cellSize);
+  timeNow = millis(); // starting time for entire simulation
 }
 
 function draw(){
@@ -42,15 +43,29 @@ function draw(){
     planterAlphaDir = planterAlphaDir * -1;
   };
   
-  // move the planter
+  // if it's time to move the planter ...
   if (millis() - timeNow > planterMoveWait) {
+    console.log("moving the planter!");
+    
+    // move the planter
+    mainLocX = mainLocX + planterMoves[planterMoveDir][0] * cellSize;
+    mainLocY = mainLocY + planterMoves[planterMoveDir][1] * cellSize;
+    
+    // add to the countdown for the next change of directin
+    planterChangeCount += 1;
+    
+    // reset the counter to wait for the next move 
+    timeNow = millis();
+    
     // if it's time to pick a new direction, pick a new direction
     if (planterChangeCount > planterChangeDirWait) {
-      
+      planterMoveDir = Math.floor(Math.random() * 8);
+      planterChangeCount = 0;
     }
+    
   }
   
   // show the planter
   rect(mainLocX, mainLocY, cellSize, cellSize);
   
-}
+} // end of draw() function here 
