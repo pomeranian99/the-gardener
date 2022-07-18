@@ -45,11 +45,24 @@ function draw(){
   
   // if it's time to move the planter ...
   if (millis() - timeNow > planterMoveWait) {
-    console.log("moving the planter!");
     
     // move the planter
     mainLocX = mainLocX + planterMoves[planterMoveDir][0] * cellSize;
     mainLocY = mainLocY + planterMoves[planterMoveDir][1] * cellSize;
+    
+    // if we've moved off the edge, wrap around 
+    if (mainLocX > canva * cellSize) {
+      mainLocX = 0;
+    };
+    if (mainLocX < 0){
+      mainLocX = (canva - 1) * cellSize;
+    };
+    if (mainLocY > canva * cellSize){
+      mainLocY = 0;
+    };
+    if (mainLocY < 0){
+      mainLocY = (canva - 1) * cellSize;
+    };
     
     // add to the countdown for the next change of directin
     planterChangeCount += 1;
