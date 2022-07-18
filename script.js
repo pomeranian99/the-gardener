@@ -3,7 +3,8 @@ var cellSize = 5; // size of each cell //
 var flowerList = [];
 var mainLocX = canva * cellSize / 2; // starting position
 var mainLocY = canva * cellSize / 2; // starting position
-var plantWait = 15000; // how many moves before the planter plants
+var plantingWait = 9; // how many moves before the planter plants
+var plantingWaitCount = 0; // start the planting wait counter ...
 var planterMoveWait = 1000 // how long the planter waits before moving 
 var planterAlpha = 255;
 var planterAlphaDir = -1;
@@ -64,7 +65,7 @@ function draw(){
       mainLocY = (canva - 1) * cellSize;
     };
     
-    // add to the countdown for the next change of directin
+    // add to the countdown for the next change of direction
     planterChangeCount += 1;
     
     // reset the counter to wait for the next move 
@@ -76,9 +77,20 @@ function draw(){
       planterChangeCount = 0;
     }
     
-  }
+    // add one tick to the planting waiting counter
+    plantingWaitCount += 1;
+    
+    // if it's time to plant ..
+    if (plantingWaitCount > plantingWait) {
+      console.log("planting a flower at the X of " + mainLocY + " and the Y of " + mainLocY);
+      plantingWaitCount = 0;
+    }
+    
+  } // end of loop that activates whenever the planter moves 
+  
   
   // show the planter
   rect(mainLocX, mainLocY, cellSize, cellSize);
+
   
 } // end of draw() function here 
