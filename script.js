@@ -101,7 +101,10 @@ function draw(){
     noStroke();
     fill(255, 0, 0);
     rect(flowerList[q].x, flowerList[q].y, cellSize, cellSize);
-    
+    // draw the inner ring
+    let inX = flowerList[q].x - (cellSize * 2);
+    let inY = flowerList[q].y - (cellSize * 2);
+    // STOPPED HERE 
   }
 
 } // end of draw() function here 
