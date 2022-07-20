@@ -87,10 +87,6 @@ function draw(){
     if (plantingWaitCount > plantingWait) {
       console.log("planting a flower at the X of " + mainLocX + " and the Y of " + mainLocY);
       flowerList.push(new flower(mainLocX, mainLocY));
-      console.log("flower info is ...");
-      for (let q = 0; q < flowerList.length; q++){
-        console.log(flowerList[q]);
-      }
       plantingWaitCount = 0;
     }
     
@@ -99,8 +95,12 @@ function draw(){
   
   // show the planter
   rect(mainLocX, mainLocY, cellSize, cellSize);
+  // show the flowers
+  for (let q = 0; q < flowerList.length; q++){
+    
+    
+  }
 
-  
 } // end of draw() function here 
 
 
