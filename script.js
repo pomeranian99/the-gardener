@@ -130,3 +130,9 @@ function draw(){
 } // end of draw() function here 
 
 
+function flower(x, y) {
+  this.x = x;
+  this.y = y;
+  
+  
+}
