@@ -135,7 +135,7 @@ function flower(x, y) {
       [0, 0, 0, 0, 0]
     ]
   ]; 
-  let flowerOuter= [
+  let flowerOuter = [
     [
       [0, 0, 1, 0, 0],
       [0, 0, 0, 0, 0],
@@ -199,11 +199,16 @@ function flower(x, y) {
   [255, 0, 85],
   [255, 0, 43]  
 ];
-
   
   this.x = x;
   this.y = y;
-  this.colorPick = Math.floor(Math.random() * colors.length);
-  
-  
+  this.innerPattern = flowerInner[Math.floor(Math.random() * flowerInner.length)];
+  this.outerPattern = flowerOuter[Math.floor(Math.random() * flowerInner.length)];
+  this.innerR = colors[Math.floor(Math.random() * colors.length)][0];
+  this.innerG = colors[Math.floor(Math.random() * colors.length)][1];
+  this.innerB = colors[Math.floor(Math.random() * colors.length)][2];
+  this.outerR = colors[Math.floor(Math.random() * colors.length)][0];
+  this.outerG = colors[Math.floor(Math.random() * colors.length)][1];
+  this.outerG = colors[Math.floor(Math.random() * colors.length)][2];
+
 }
