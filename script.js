@@ -5,7 +5,7 @@ var cellSize = 5; // size of each cell //
 var flowerList = [];
 var mainLocX = canva * cellSize / 2; // starting position
 var mainLocY = canva * cellSize / 2; // starting position
-var plantingWait = 9; // how many moves before the planter plants
+var plantingWait = 14// how many moves before the planter plants
 var plantingWaitCount = 0; // start the planting wait counter ...
 var planterMoveWait = 1000 // how long the planter waits before moving 
 var planterAlpha = 255;
@@ -16,7 +16,7 @@ var planterChangeCount = 0;
 var planterMoves = [
   [0, -1],
   [1, -1],
-  [1, 0],
+  [1, 0],1
   [1, 1],
   [0, 1],
   [-1, 1],
@@ -101,6 +101,7 @@ function draw(){
     noStroke();
     fill(255, 0, 0);
     rect(flowerList[q].x, flowerList[q].y, cellSize, cellSize);
+    
   }
 
 } // end of draw() function here 
