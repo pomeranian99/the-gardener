@@ -97,8 +97,10 @@ function draw(){
   rect(mainLocX, mainLocY, cellSize, cellSize);
   // show the flowers
   for (let q = 0; q < flowerList.length; q++){
-    
-    
+    // draw the center red pixel
+    noStroke();
+    fill(255, 0, 0);
+    rect(flowerList[q].x, flowerList[q].y, cellSize, cellSize);
   }
 
 } // end of draw() function here 
