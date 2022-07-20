@@ -1,3 +1,5 @@
+var tempFlowerCount = 0;
+
 var canva = 60; // number of rows and columns 
 var cellSize = 5; // size of each cell // 
 var flowerList = [];
@@ -83,7 +85,12 @@ function draw(){
     
     // if it's time to plant ..
     if (plantingWaitCount > plantingWait) {
-      console.log("planting a flower at the X of " + mainLocY + " and the Y of " + mainLocY);
+      console.log("planting a flower at the X of " + mainLocX + " and the Y of " + mainLocY);
+      flowerList.push(new flower(mainLocX, mainLocY));
+      console.log("flower info is ...");
+      for (let q = 0; q < flowerList.length; q++){
+        console.log(flowerList[q]);
+      }
       plantingWaitCount = 0;
     }
     
