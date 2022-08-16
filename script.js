@@ -105,13 +105,15 @@ function draw(){
     fill(flowerList[q].innerR, flowerList[q].innerG, flowerList[q].innerB);
     let inX = flowerList[q].x - (cellSize * 2);
     let inY = flowerList[q].y - (cellSize * 2);
-    for (let f = 0; f < flowerList[q].innerPattern.length) {
-      for (let g = 0; g < flowerList[q].innerPattern[f].length) {
-        if (flower)
-        rect(inX + (g * cellSize), inY + (f * cellSize), cellSize, cellSize);
+    for (let f = 0; f < flowerList[q].innerPattern.length; f++) {
+      for (let g = 0; g < flowerList[q].innerPattern[f].length; g++) {
+        if (flowerList[q].innerPattern[f][g] === 1) {
+          rect(inX + (g * cellSize), inY + (f * cellSize), cellSize, cellSize);
+        }
       }
     }
-    // STOPPED HERE 
+    // draw the outer ring
+    
   }
 
 } // end of draw() function here 
