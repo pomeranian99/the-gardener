@@ -104,6 +104,7 @@ function draw(){
     // draw the inner ring
     let inX = flowerList[q].x - (cellSize * 2);
     let inY = flowerList[q].y - (cellSize * 2);
+    // fill()
     // STOPPED HERE 
   }
 
