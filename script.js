@@ -16,7 +16,7 @@ var planterChangeCount = 0;
 var planterMoves = [
   [0, -1],
   [1, -1],
-  [1, 0],1
+  [1, 0],
   [1, 1],
   [0, 1],
   [-1, 1],
