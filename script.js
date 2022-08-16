@@ -102,9 +102,15 @@ function draw(){
     fill(255, 0, 0);
     rect(flowerList[q].x, flowerList[q].y, cellSize, cellSize);
     // draw the inner ring
+    fill(flowerList[q].innerR, flowerList[q].innerG, flowerList[q].innerB);
     let inX = flowerList[q].x - (cellSize * 2);
     let inY = flowerList[q].y - (cellSize * 2);
-    // fill()
+    for (let f = 0; f < flowerList[q].innerPattern.length) {
+      for (let g = 0; g < flowerList[q].innerPattern[f].length) {
+        if (flower)
+        rect(inX + (g * cellSize), inY + (f * cellSize), cellSize, cellSize);
+      }
+    }
     // STOPPED HERE 
   }
 
