@@ -388,17 +388,10 @@ function displayWords() {
       yPos = yPos + letterArray.length * cellSize;
       xPos = xPos + cellSize;
     }
-    x
+    // set xPos go back to beginning of the text lines; yPos goes down by two cell sizes 
+    xPos = 10;
+    yPos += (cellSize * 2);
+    
   }
 }
 
-/*
-
-var openingWords = [
-  ["t", "h", "e"],
-  ["g", "a", "r", "d", "e", "n", "e", "r"],
-  ["arrow"],
-  ["r", "u", "n"],
-];
-
-*/
