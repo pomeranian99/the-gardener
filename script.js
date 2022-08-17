@@ -27,92 +27,9 @@ var planterMoves = [
   [-1, -1],
 ];
 
-var letters = {
-  t: [
-    [1, 1, 1, 0],
-    [0, 1, 0, 0],
-    [0, 1, 0, 0],
-    [0, 1, 0, 0],
-    [0, 1, 0, 0],
-  ],
-  h: [
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-    [1, 1, 1, 1],
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-  ],
-  e: [
-    [1, 1, 1, 1],
-    [1, 0, 0, 0],
-    [1, 1, 1, 0],
-    [1, 0, 0, 0],
-    [1, 1, 1, 1],
-  ],
-  g: [
-    [0, 1, 1, 0],
-    [1, 0, 0, 0],
-    [1, 0, 1, 1],
-    [1, 0, 0, 1],
-    [0, 1, 1, 0],
-  ],
-  a: [
-    [0, 1, 1, 0],
-    [1, 0, 0, 1],
-    [1, 1, 1, 1],
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-  ],
-  d: [
-    [1, 1, 1, 0],
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-    [1, 1, 1, 0],
-  ],
-  n: [
-    [1, 0, 0, 1],
-    [1, 1, 0, 1],
-    [1, 0, 1, 1],
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-  ],
-  r: [
-    [0, 1, 1, 0],
-    [1, 0, 0, 1],
-    [1, 1, 1, 1],
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-  ],
-  u: [
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-    [1, 0, 0, 1],
-    [0, 1, 1, 0],
-  ],
-  arrow: [
-    [1, 1, 0, 0],
-    [1, 1, 1, 0],
-    [1, 1, 1, 1],
-    [1, 1, 1, 0],
-    [1, 1, 0, 0],
-  ],
-  space: [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-  ],
-};
 
-var openingWords = [
-  ["t", "h", "e"],
-  ["g", "a", "r", "d", "e", "n", "e", "r"],
-  ["arrow"],
-  ["r", "u", "n"],
-];
+var opener =
+
 
 var timeNow = 0;
 
@@ -361,22 +278,99 @@ function flower(x, y) {
   this.outerB = outerColorSet[2];
 }
 
-function doLetter(message, y) {
-  let yPos = y;
-  // load the message array, go line by line. p is the line, q is the letter in each line ...
-  for (let p = 0; p < message; p++) {
-    // get the length of the line, position it centered. Get the xPos for the first letter. To calculate it centered, each letter is 4 cells wide, plus one more cell for spacing between letters; then subtract one cell because there's no space at the end of the line ...
-    let lineLength = (message[p].length * 5) - 1;
-    let xPos = (Math.floor((60 - lineLength) / 2)) * cellSize;
-    // grab the first letter .. 
-    for (let q = 0; q < message[p].length; q++) {
-      // get the array for the letter
-      let letterArray = letters[message[p][q]];
-      for (let r = 0; r < letterArray.length; r++) {
-        for (let s = 0; s < letterArray[r].length; s++) {
-          
-        }
-      }
-    }
-  }
-}
+
+
+
+
+// stuff to get rid of 
+
+var letters = {
+  t: [
+    [1, 1, 1, 0],
+    [0, 1, 0, 0],
+    [0, 1, 0, 0],
+    [0, 1, 0, 0],
+    [0, 1, 0, 0],
+  ],
+  h: [
+    [1, 0, 0, 1],
+    [1, 0, 0, 1],
+    [1, 1, 1, 1],
+    [1, 0, 0, 1],
+    [1, 0, 0, 1],
+  ],
+  e: [
+    [1, 1, 1, 1],
+    [1, 0, 0, 0],
+    [1, 1, 1, 0],
+    [1, 0, 0, 0],
+    [1, 1, 1, 1],
+  ],
+  g: [
+    [0, 1, 1, 0],
+    [1, 0, 0, 0],
+    [1, 0, 1, 1],
+    [1, 0, 0, 1],
+    [0, 1, 1, 0],
+  ],
+  a: [
+    [0, 1, 1, 0],
+    [1, 0, 0, 1],
+    [1, 1, 1, 1],
+    [1, 0, 0, 1],
+    [1, 0, 0, 1],
+  ],
+  d: [
+    [1, 1, 1, 0],
+    [1, 0, 0, 1],
+    [1, 0, 0, 1],
+    [1, 0, 0, 1],
+    [1, 1, 1, 0],
+  ],
+  n: [
+    [1, 0, 0, 1],
+    [1, 1, 0, 1],
+    [1, 0, 1, 1],
+    [1, 0, 0, 1],
+    [1, 0, 0, 1],
+  ],
+  r: [
+    [0, 1, 1, 0],
+    [1, 0, 0, 1],
+    [1, 1, 1, 1],
+    [1, 0, 0, 1],
+    [1, 0, 0, 1],
+  ],
+  u: [
+    [1, 0, 0, 1],
+    [1, 0, 0, 1],
+    [1, 0, 0, 1],
+    [1, 0, 0, 1],
+    [0, 1, 1, 0],
+  ],
+  arrow: [
+    [1, 1, 0, 0],
+    [1, 1, 1, 0],
+    [1, 1, 1, 1],
+    [1, 1, 1, 0],
+    [1, 1, 0, 0],
+  ],
+  space: [
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+  ],
+};
+
+var openingWords = [
+  ["t", "h", "e"],
+  ["g", "a", "r", "d", "e", "n", "e", "r"],
+  ["arrow"],
+  ["r", "u", "n"],
+];
+
+
+
+
