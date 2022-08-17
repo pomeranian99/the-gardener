@@ -365,14 +365,17 @@ function doLetter(message, y) {
   let yPos = y;
   // load the message array, go line by line. p is the line, q is the letter in each line ...
   for (let p = 0; p < message; p++) {
-    // get the length of the line, position it centered
-    let lineLength = message[p].length * 5 - 1;
-    let xPos = (60 - lineLength) / 2;
-    // display each letter in the word
+    // get the length of the line, position it centered. Get the xPos for the first letter. To calculate it centered, each letter is 4 cells wide, plus one more cell for spacing between letters; then subtract one cell because there's no space at the end of the line ...
+    let lineLength = (message[p].length * 5) - 1;
+    let xPos = (Math.floor((60 - lineLength) / 2)) * cellSize;
+    // grab the first letter .. 
     for (let q = 0; q < message[p].length; q++) {
-      if (message[p][q] === 1) {
-        fill(255, 255, 0);
-        rect(xPos, yPos, cellSize, cellSize);
+      // get the array for the letter
+      let letterArray = letters[message[p][q]];
+      for (let r = 0; r < letterArray.length; r++) {
+        for (let s = 0; s < letterArray[r].length; s++) {
+          
+        }
       }
     }
   }
