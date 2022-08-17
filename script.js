@@ -29,6 +29,7 @@ var timeNow = 0;
 function setup() {
   createCanvas(canva * cellSize, canva * cellSize);
   timeNow = millis(); // starting time for entire simulation
+  console.log("Screen width is ..." + screen.width);
 }
 
 function draw() {
