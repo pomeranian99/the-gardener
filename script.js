@@ -27,9 +27,13 @@ var planterMoves = [
 var timeNow = 0;
 
 function setup() {
+  if (screen.width > 680) {
+    cellSize = 10;
+  }
   createCanvas(canva * cellSize, canva * cellSize);
   timeNow = millis(); // starting time for entire simulation
   console.log("Screen width is ..." + screen.width);
+  
 }
 
 function draw() {
