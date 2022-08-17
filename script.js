@@ -272,12 +272,4 @@ function flower(x, y) {
   this.outerR = outerColorSet[0];
   this.outerG = outerColorSet[1];
   this.outerB = outerColorSet[2];
-  
-  
-  // this.innerR = colors[Math.floor(Math.random() * colors.length)][0];
-  // this.innerG = colors[Math.floor(Math.random() * colors.length)][1];
-  // this.innerB = colors[Math.floor(Math.random() * colors.length)][2];
-  // this.outerR = colors[Math.floor(Math.random() * colors.length)][0];
-  // this.outerG = colors[Math.floor(Math.random() * colors.length)][1];
-  // this.outerG = colors[Math.floor(Math.random() * colors.length)][2];
 }
