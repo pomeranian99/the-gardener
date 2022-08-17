@@ -108,7 +108,7 @@ function draw() {
     let inX = flowerList[q].x - cellSize * 2;
     let inY = flowerList[q].y - cellSize * 2;
     
-    fill(flowerList[q].outerR, flowerList[q].outerG, flowerList[q].outerB);
+    fill(flowerList[q].outerR, flowerList[q].outerG, flowerList[q].outerB, 80);
     for (let h = 0; h < flowerList[q].outerPattern.length; h++) {
       for (let i = 0; i < flowerList[q].outerPattern[h].length; i++) {
         if (flowerList[q].outerPattern[h][i] === 1) {
@@ -118,7 +118,7 @@ function draw() {
     }
     
     // draw the inner ring
-    fill(flowerList[q].innerR, flowerList[q].innerG, flowerList[q].innerB);
+    fill(flowerList[q].innerR, flowerList[q].innerG, flowerList[q].innerB, 255);
     for (let f = 0; f < flowerList[q].innerPattern.length; f++) {
       for (let g = 0; g < flowerList[q].innerPattern[f].length; g++) {
         if (flowerList[q].innerPattern[f][g] === 1) {
@@ -183,19 +183,40 @@ function flower(x, y) {
       [0, 1, 1, 1, 0],
     ],
     [
-      [1, 1, 0, 1, 1],
       [1, 0, 0, 0, 1],
       [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
       [1, 0, 0, 0, 1],
-      [1, 1, 0, 1, 1],
     ],
     [
-      [1, 1, 0, 1, 1],
+      [0, 1, 0, 1, 0],
+      [1, 0, 0, 0, 1],
       [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [1, 1, 0, 1, 1],
+      [1, 0, 0, 0, 1],
+      [0, 1, 0, 1, 0],
     ],
+    [
+      [0, 0, 0, 1, 0],
+      [1, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 1],
+      [0, 1, 0, 0, 0],
+    ],
+    [
+      [0, 1, 0, 0, 0],
+      [0, 0, 0, 0, 1],
+      [0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0],
+      [0, 0, 0, 1, 0],
+    ],
+    [
+      [0, 1, 0, 1, 0],
+      [1, 0, 0, 0, 1],
+      [0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 1],
+      [0, 1, 0, 1, 0],
+    ]
   ];
 
   let colors = [
