@@ -32,8 +32,6 @@ function setup() {
   }
   createCanvas(canva * cellSize, canva * cellSize);
   timeNow = millis(); // starting time for entire simulation
-  console.log("Screen width is ..." + screen.width);
-  
 }
 
 function draw() {
@@ -88,12 +86,6 @@ function draw() {
 
     // if it's time to plant ..
     if (plantingWaitCount > plantingWait) {
-      console.log(
-        "planting a flower at the X of " +
-          mainLocX +
-          " and the Y of " +
-          mainLocY
-      );
       flowerList.push(new flower(mainLocX, mainLocY));
       plantingWaitCount = 0;
     }
@@ -107,12 +99,11 @@ function draw() {
     noStroke();
     fill(255, 0, 0);
     rect(flowerList[q].x, flowerList[q].y, cellSize, cellSize);
-    
-    // draw the outer ring
-    
+
     let inX = flowerList[q].x - cellSize * 2;
     let inY = flowerList[q].y - cellSize * 2;
-    
+
+    // draw the outer ring
     fill(flowerList[q].outerR, flowerList[q].outerG, flowerList[q].outerB, 150);
     for (let h = 0; h < flowerList[q].outerPattern.length; h++) {
       for (let i = 0; i < flowerList[q].outerPattern[h].length; i++) {
@@ -121,7 +112,7 @@ function draw() {
         }
       }
     }
-    
+
     // draw the inner ring
     fill(flowerList[q].innerR, flowerList[q].innerG, flowerList[q].innerB, 180);
     for (let f = 0; f < flowerList[q].innerPattern.length; f++) {
@@ -221,7 +212,7 @@ function flower(x, y) {
       [0, 0, 0, 0, 0],
       [1, 0, 0, 0, 1],
       [0, 1, 0, 1, 0],
-    ]
+    ],
   ];
 
   let colors = [
@@ -260,14 +251,18 @@ function flower(x, y) {
 
   this.x = x;
   this.y = y;
+  // pick a random pattern for the inside of the flower
   this.innerPattern =
     flowerInner[Math.floor(Math.random() * flowerInner.length)];
+  // ... and one for the outside of the flower
   this.outerPattern =
     flowerOuter[Math.floor(Math.random() * flowerOuter.length)];
+  // then a color for the inside ...
   let innerColorSet = colors[Math.floor(Math.random() * colors.length)];
   this.innerR = innerColorSet[0];
   this.innerG = innerColorSet[1];
   this.innerB = innerColorSet[2];
+  // ... and outside
   let outerColorSet = colors[Math.floor(Math.random() * colors.length)];
   this.outerR = outerColorSet[0];
   this.outerG = outerColorSet[1];
