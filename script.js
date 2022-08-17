@@ -367,6 +367,8 @@ function doLetter(message, y){
   for (let p = 0; p < message; p++) {
     let lineLength = (message[p].length * 5) - 1;
     let xPos = (60 - lineLength) / 2;
-    
+    for (let q = 0; q < message[p].length; q++) {
+      
+    }
   }
 }
