@@ -105,7 +105,14 @@ var letters = {
     [0, 0, 0, 0],
     [0, 0, 0, 0]
   ]
-}
+};
+
+var openingWords = [
+  ["t", "h", "e"],
+  ["g", "a", "r", "d", "e", "n", "e", "r"],
+  ["arrow"],
+  ["r", "u", "n"]
+]
 
 
 var timeNow = 0;
@@ -356,6 +363,6 @@ function flower(x, y) {
 }
 
 
-function doLetter(letter){
-  
+function doLetter(message){
+  for 
 }
