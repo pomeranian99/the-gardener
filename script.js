@@ -27,13 +27,12 @@ var planterMoves = [
   [-1, -1],
 ];
 
-
 var opener = [
   ["space", "space", "t", "h", "e", "space", "space", "space"],
   ["g", "a", "r", "d", "e", "n", "e", "r"],
   ["space", "space", "space", "space", "space", "space", "space", "space"],
   ["space", "space", "arrow", "space", "space", "space", "space", "space"],
-  ["space", "space", "r", "u", "n", "space", "space", "space"]
+  ["space", "space", "r", "u", "n", "space", "space", "space"],
 ];
 
 var letters = {
@@ -115,7 +114,6 @@ var letters = {
     [0, 0, 0, 0],
   ],
 };
-
 
 var timeNow = 0;
 
@@ -367,7 +365,7 @@ function flower(x, y) {
 function displayWords() {
   let xPos = 10;
   let yPos = 15;
-  // get each line of the opener
+  // get each line of the opener. "p" is each line, "q" is each character
   for (let p = 0; p < opener.length; p++) {
     // go character by character through the line
     for (let q = 0; q < opener[p].length; q++) {
@@ -377,17 +375,22 @@ function displayWords() {
       for (let r = 0; r < letterArray.length; r++) {
         for (let s = 0; s < letterArray[r].length; s++) {
           if (letterArray[r][s] === 1) {
-            fill (255, 255, 0);
-            rect (xPos, yPos, cellSize, cellSize);
+            fill(255, 255, 0);
+            rect(xPos, yPos, cellSize, cellSize);
+            xPos += cellSize;
           }
         }
-        x
+        // move down one cell, and back to the beginning of the character location ...
+        yPos += cellSize;
+        xPos = xPos - letterArray[r].length * cellSize;
       }
-     }
+      // when the character is done, move the cursor up to where the next letter will begin. Add an extra cell of x-axis space between letters ..
+      yPos = yPos + letterArray.length * cellSize;
+      xPos = xPos + cellSize;
+    }
+    x
   }
 }
-
-
 
 /*
 
@@ -399,7 +402,3 @@ var openingWords = [
 ];
 
 */
-
-
-
-
