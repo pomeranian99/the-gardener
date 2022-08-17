@@ -4,8 +4,10 @@ var openScreen = true;
 var canva = 60; // number of rows and columns
 var cellSize = 5; // size of each cell //
 var flowerList = [];
-var mainLocX = (canva * cellSize) / 2; // starting position
-var mainLocY = (canva * cellSize) / 2; // starting position
+var mainLocX; // starting position, as yet undeclared
+var mainLocY; // starting position, as yet undeclared
+// var mainLocX = (canva * cellSize) / 2; // starting position
+// var mainLocY = (canva * cellSize) / 2; // starting position
 var plantingWait = 13; // how many moves before the planter plants
 var plantingWaitCount = 0; // start the planting wait counter ...
 var planterMoveWait = 800; // how long the planter waits before moving
@@ -25,96 +27,86 @@ var planterMoves = [
   [-1, -1],
 ];
 
-var letters = [
-  [
-    // T
+var letters = {
+  "t": [
     [1, 1, 1, 0],
     [0, 1, 0, 0],
     [0, 1, 0, 0],
     [0, 1, 0, 0],
     [0, 1, 0, 0]
   ],
-  [
-    // H
+  "h": [
     [1, 0, 0, 1],
     [1, 0, 0, 1],
     [1, 1, 1, 1],
     [1, 0, 0, 1],
     [1, 0, 0, 1]
   ],
-  [
-    // E
+  "e": [
     [1, 1, 1, 1],
     [1, 0, 0, 0],
     [1, 1, 1, 0],
     [1, 0, 0, 0],
     [1, 1, 1, 1]
   ],
-  [
-    // G
+  "g": [
     [0, 1, 1, 0],
     [1, 0, 0, 0],
     [1, 0, 1, 1],
     [1, 0, 0, 1],
     [0, 1, 1, 0]
   ],
-  [
-    // A
+  "a": [
     [0, 1, 1, 0],
     [1, 0, 0, 1],
     [1, 1, 1, 1],
     [1, 0, 0, 1],
     [1, 0, 0, 1]
   ],
-  [
-    // R
-    [1, 1, 1, 0],
-    [1, 0, 0, 1],
-    [1, 1, 1, 0],
-    [1, 0, 1, 0],
-    [1, 0, 0, 1]
-  ],
-  [
-    // D
+  "d": [
     [1, 1, 1, 0],
     [1, 0, 0, 1],
     [1, 0, 0, 1],
     [1, 0, 0, 1],
     [1, 1, 1, 0]
   ],
-  [
-    // N
+  "n": [
     [1, 0, 0, 1],
     [1, 1, 0, 1],
     [1, 0, 1, 1],
     [1, 0, 0, 1],
     [1, 0, 0, 1]
   ],
-  [
-    // R
+  "r": [
     [0, 1, 1, 0],
     [1, 0, 0, 1],
     [1, 1, 1, 1],
     [1, 0, 0, 1],
     [1, 0, 0, 1]
   ],
-  [
-    // U 
+  "u": [
     [1, 0, 0, 1],
     [1, 0, 0, 1],
     [1, 0, 0, 1],
     [1, 0, 0, 1],
     [0, 1, 1, 0]
   ],
-  [
-    // arrow icon 
+  "arrow": [
     [1, 1, 0, 0],
     [1, 1, 1, 0],
     [1, 1, 1, 1],
     [1, 1, 1, 0],
     [1, 1, 0, 0]
+  ],
+  "space": [
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0]
   ]
-]
+}
+
 
 var timeNow = 0;
 
@@ -123,6 +115,8 @@ function setup() {
     cellSize = 10;
   }
   createCanvas(canva * cellSize, canva * cellSize);
+  mainLocX = (canva * cellSize) / 2;
+  mainLocY = (canva * cellSize) / 2;
   timeNow = millis(); // starting time for entire simulation
 }
 
@@ -362,3 +356,6 @@ function flower(x, y) {
 }
 
 
+function doLetter(letter){
+  
+}
