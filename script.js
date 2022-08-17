@@ -28,92 +28,91 @@ var planterMoves = [
 ];
 
 var letters = {
-  "t": [
+  t: [
     [1, 1, 1, 0],
     [0, 1, 0, 0],
     [0, 1, 0, 0],
     [0, 1, 0, 0],
-    [0, 1, 0, 0]
+    [0, 1, 0, 0],
   ],
-  "h": [
+  h: [
     [1, 0, 0, 1],
     [1, 0, 0, 1],
     [1, 1, 1, 1],
     [1, 0, 0, 1],
-    [1, 0, 0, 1]
+    [1, 0, 0, 1],
   ],
-  "e": [
+  e: [
     [1, 1, 1, 1],
     [1, 0, 0, 0],
     [1, 1, 1, 0],
     [1, 0, 0, 0],
-    [1, 1, 1, 1]
+    [1, 1, 1, 1],
   ],
-  "g": [
+  g: [
     [0, 1, 1, 0],
     [1, 0, 0, 0],
     [1, 0, 1, 1],
     [1, 0, 0, 1],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   ],
-  "a": [
+  a: [
     [0, 1, 1, 0],
     [1, 0, 0, 1],
     [1, 1, 1, 1],
     [1, 0, 0, 1],
-    [1, 0, 0, 1]
+    [1, 0, 0, 1],
   ],
-  "d": [
+  d: [
     [1, 1, 1, 0],
     [1, 0, 0, 1],
     [1, 0, 0, 1],
     [1, 0, 0, 1],
-    [1, 1, 1, 0]
+    [1, 1, 1, 0],
   ],
-  "n": [
+  n: [
     [1, 0, 0, 1],
     [1, 1, 0, 1],
     [1, 0, 1, 1],
     [1, 0, 0, 1],
-    [1, 0, 0, 1]
+    [1, 0, 0, 1],
   ],
-  "r": [
+  r: [
     [0, 1, 1, 0],
     [1, 0, 0, 1],
     [1, 1, 1, 1],
     [1, 0, 0, 1],
-    [1, 0, 0, 1]
+    [1, 0, 0, 1],
   ],
-  "u": [
+  u: [
     [1, 0, 0, 1],
     [1, 0, 0, 1],
     [1, 0, 0, 1],
     [1, 0, 0, 1],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   ],
-  "arrow": [
+  arrow: [
     [1, 1, 0, 0],
     [1, 1, 1, 0],
     [1, 1, 1, 1],
     [1, 1, 1, 0],
-    [1, 1, 0, 0]
+    [1, 1, 0, 0],
   ],
-  "space": [
+  space: [
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
-    [0, 0, 0, 0]
-  ]
+    [0, 0, 0, 0],
+  ],
 };
 
 var openingWords = [
   ["t", "h", "e"],
   ["g", "a", "r", "d", "e", "n", "e", "r"],
   ["arrow"],
-  ["r", "u", "n"]
-]
-
+  ["r", "u", "n"],
+];
 
 var timeNow = 0;
 
@@ -362,13 +361,19 @@ function flower(x, y) {
   this.outerB = outerColorSet[2];
 }
 
-
-function doLetter(message, y){
+function doLetter(message, y) {
+  let yPos = y;
+  // load the message array, go line by line. p is the line, q is the letter in each line ...
   for (let p = 0; p < message; p++) {
-    let lineLength = (message[p].length * 5) - 1;
+    // get the length of the line, position it centered
+    let lineLength = message[p].length * 5 - 1;
     let xPos = (60 - lineLength) / 2;
+    // display each letter in the word
     for (let q = 0; q < message[p].length; q++) {
-      
+      if (message[p][q] === 1) {
+        fill(255, 255, 0);
+        rect(xPos, yPos, cellSize, cellSize);
+      }
     }
   }
 }
