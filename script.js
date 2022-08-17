@@ -113,7 +113,7 @@ function draw() {
     let inX = flowerList[q].x - cellSize * 2;
     let inY = flowerList[q].y - cellSize * 2;
     
-    fill(flowerList[q].outerR, flowerList[q].outerG, flowerList[q].outerB, 80);
+    fill(flowerList[q].outerR, flowerList[q].outerG, flowerList[q].outerB, 150);
     for (let h = 0; h < flowerList[q].outerPattern.length; h++) {
       for (let i = 0; i < flowerList[q].outerPattern[h].length; i++) {
         if (flowerList[q].outerPattern[h][i] === 1) {
@@ -123,7 +123,7 @@ function draw() {
     }
     
     // draw the inner ring
-    fill(flowerList[q].innerR, flowerList[q].innerG, flowerList[q].innerB, 80);
+    fill(flowerList[q].innerR, flowerList[q].innerG, flowerList[q].innerB, 180);
     for (let f = 0; f < flowerList[q].innerPattern.length; f++) {
       for (let g = 0; g < flowerList[q].innerPattern[f].length; g++) {
         if (flowerList[q].innerPattern[f][g] === 1) {
@@ -264,10 +264,20 @@ function flower(x, y) {
     flowerInner[Math.floor(Math.random() * flowerInner.length)];
   this.outerPattern =
     flowerOuter[Math.floor(Math.random() * flowerOuter.length)];
-  this.innerR = colors[Math.floor(Math.random() * colors.length)][0];
-  this.innerG = colors[Math.floor(Math.random() * colors.length)][1];
-  this.innerB = colors[Math.floor(Math.random() * colors.length)][2];
-  this.outerR = colors[Math.floor(Math.random() * colors.length)][0];
-  this.outerG = colors[Math.floor(Math.random() * colors.length)][1];
-  this.outerG = colors[Math.floor(Math.random() * colors.length)][2];
+  let innerColorSet = colors[Math.floor(Math.random() * colors.length)];
+  this.innerR = innerColorSet[0];
+  this.innerG = innerColorSet[1];
+  this.innerB = innerColorSet[2];
+  let outerColorSet = colors[Math.floor(Math.random() * colors.length)];
+  this.outerR = outerColorSet[0];
+  this.outerG = outerColorSet[1];
+  this.outerB = outerColorSet[2];
+  
+  
+  // this.innerR = colors[Math.floor(Math.random() * colors.length)][0];
+  // this.innerG = colors[Math.floor(Math.random() * colors.length)][1];
+  // this.innerB = colors[Math.floor(Math.random() * colors.length)][2];
+  // this.outerR = colors[Math.floor(Math.random() * colors.length)][0];
+  // this.outerG = colors[Math.floor(Math.random() * colors.length)][1];
+  // this.outerG = colors[Math.floor(Math.random() * colors.length)][2];
 }
