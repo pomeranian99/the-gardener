@@ -363,6 +363,8 @@ function flower(x, y) {
 }
 
 
-function doLetter(message){
-  for 
+function doLetter(message, y){
+  for (let p = 0; p < message; p++) {
+    
+  }
 }
