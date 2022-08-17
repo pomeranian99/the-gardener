@@ -114,6 +114,13 @@ function draw(){
     }
     // draw the outer ring
     
+    for (let h = 0; h < flowerList[q].outerPattern.length; h++) {
+      for (let i = 0; i < flowerList[q].outerPattern[h].length; i++) {
+        if (flowerList[q].outerPattern[h][i] === 1) {
+          rect(inX + (i * cellSize), inY + (h * cellSize), cellSize, cellSize);
+        }
+      }
+    }
   }
 
 } // end of draw() function here 
