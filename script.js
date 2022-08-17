@@ -118,7 +118,7 @@ function draw() {
     }
     
     // draw the inner ring
-    fill(flowerList[q].innerR, flowerList[q].innerG, flowerList[q].innerB, 255);
+    fill(flowerList[q].innerR, flowerList[q].innerG, flowerList[q].innerB, 80);
     for (let f = 0; f < flowerList[q].innerPattern.length; f++) {
       for (let g = 0; g < flowerList[q].innerPattern[f].length; g++) {
         if (flowerList[q].innerPattern[f][g] === 1) {
