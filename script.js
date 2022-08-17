@@ -364,16 +364,17 @@ function flower(x, y) {
   this.outerB = outerColorSet[2];
 }
 
-
-
-function displayWords (message) {
+function displayWords() {
   let xPos = 10;
   let yPos = 15;
-  
-  
+  // get each line of the opener
+  for (let p = 0; p < opener.length; p++) {
+    // go character by character through the line
+    for (let q = 0; q < opener[p].length; q++) {
+      if ()
+    }
+  }
 }
-
-
 
 
 
