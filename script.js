@@ -133,7 +133,6 @@ function draw() {
 
   // start with the open screen, don't run the main logic unless they click
   if (openScreen == true) {
-    console.log('running the open screen');
     let xPos = 10;
     let yPos = 15;
     // get each line of the opener. "p" is each line, "q" is each character
@@ -142,12 +141,13 @@ function draw() {
       for (let q = 0; q < opener[p].length; q++) {
         // get the array for this letter ...
         let letterArray = letters[opener[p][q]];
+        console.log(letterArray);
         // ... then iterate through it
         for (let r = 0; r < letterArray.length; r++) {
           for (let s = 0; s < letterArray[r].length; s++) {
-            if (letterArray[r][s] === 1) {
+            if (letterArray[r][s] == 1) {
               fill(255, 255, 0);
-              rect(xPos, yPos, cellSize, cellSize);
+              rect(xPos * cellSize, yPos * cellSize, cellSize, cellSize);
               xPos += cellSize;
             }
           }
