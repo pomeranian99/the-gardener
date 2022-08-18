@@ -130,88 +130,133 @@ function setup() {
 function draw() {
   clear();
   background(0);
-  noStroke();
-  fill(51, 119, 255, planterAlpha);
 
-  // pulse the planter's alpha
-  planterAlpha += planterAlphaDir * 3;
-  if (planterAlphaDir < 0 && planterAlpha < 120) {
-    planterAlphaDir = planterAlphaDir * -1;
-  }
-  if (planterAlphaDir > 0 && planterAlpha > 254) {
-    planterAlphaDir = planterAlphaDir * -1;
-  }
-
-  // if it's time to move the planter ...
-  if (millis() - timeNow > planterMoveWait) {
-    // move the planter
-    mainLocX = mainLocX + planterMoves[planterMoveDir][0] * cellSize;
-    mainLocY = mainLocY + planterMoves[planterMoveDir][1] * cellSize;
-
-    // if we've moved off the edge, wrap around
-    if (mainLocX > (canva - 1) * cellSize) {
-      mainLocX = 0;
+  // start with the open screen, don't run the main logic unless they click
+  if (openScreen == true) {
+    console.log('running the open screen');
+    let xPos = 10;
+    let yPos = 15;
+    // get each line of the opener. "p" is each line, "q" is each character
+    for (let p = 0; p < opener.length; p++) {
+      // go character by character through the line
+      for (let q = 0; q < opener[p].length; q++) {
+        // get the array for this letter ...
+        let letterArray = letters[opener[p][q]];
+        // ... then iterate through it
+        for (let r = 0; r < letterArray.length; r++) {
+          for (let s = 0; s < letterArray[r].length; s++) {
+            if (letterArray[r][s] === 1) {
+              fill(255, 255, 0);
+              rect(xPos, yPos, cellSize, cellSize);
+              xPos += cellSize;
+            }
+          }
+          // move down one cell, and back to the beginning of the character location ...
+          yPos += cellSize;
+          xPos = xPos - letterArray[r].length * cellSize;
+        }
+        // when the character is done, move the cursor up to where the next letter will begin. Add an extra cell of x-axis space between letters ..
+        yPos = yPos + letterArray.length * cellSize;
+        xPos = xPos + cellSize;
+      }
+      // set xPos go back to beginning of the text lines; yPos goes down by two cell sizes
+      xPos = 10;
+      yPos += cellSize * 2;
     }
-    if (mainLocX < 0) {
-      mainLocX = (canva - 1) * cellSize;
-    }
-    if (mainLocY > (canva - 1) * cellSize) {
-      mainLocY = 0;
-    }
-    if (mainLocY < 0) {
-      mainLocY = (canva - 1) * cellSize;
-    }
-
-    // add to the countdown for the next change of direction
-    planterChangeCount += 1;
-
-    // reset the counter to wait for the next move
-    timeNow = millis();
-
-    // if it's time to pick a new direction, pick a new direction
-    if (planterChangeCount > planterChangeDirWait) {
-      planterMoveDir = Math.floor(Math.random() * 8);
-      planterChangeCount = 0;
-    }
-
-    // add one tick to the planting waiting counter
-    plantingWaitCount += 1;
-
-    // if it's time to plant ..
-    if (plantingWaitCount > plantingWait) {
-      flowerList.push(new flower(mainLocX, mainLocY));
-      plantingWaitCount = 0;
-    }
-  } // end of loop that activates whenever the planter moves
-
-  // show the planter
-  rect(mainLocX, mainLocY, cellSize, cellSize);
-  // show the flowers
-  for (let q = 0; q < flowerList.length; q++) {
-    // draw the center red pixel
+  } else {
     noStroke();
-    fill(255, 0, 0);
-    rect(flowerList[q].x, flowerList[q].y, cellSize, cellSize);
+    fill(51, 119, 255, planterAlpha);
 
-    let inX = flowerList[q].x - cellSize * 2;
-    let inY = flowerList[q].y - cellSize * 2;
+    // pulse the planter's alpha
+    planterAlpha += planterAlphaDir * 3;
+    if (planterAlphaDir < 0 && planterAlpha < 120) {
+      planterAlphaDir = planterAlphaDir * -1;
+    }
+    if (planterAlphaDir > 0 && planterAlpha > 254) {
+      planterAlphaDir = planterAlphaDir * -1;
+    }
 
-    // draw the outer ring
-    fill(flowerList[q].outerR, flowerList[q].outerG, flowerList[q].outerB, 150);
-    for (let h = 0; h < flowerList[q].outerPattern.length; h++) {
-      for (let i = 0; i < flowerList[q].outerPattern[h].length; i++) {
-        if (flowerList[q].outerPattern[h][i] === 1) {
-          rect(inX + i * cellSize, inY + h * cellSize, cellSize, cellSize);
+    // if it's time to move the planter ...
+    if (millis() - timeNow > planterMoveWait) {
+      // move the planter
+      mainLocX = mainLocX + planterMoves[planterMoveDir][0] * cellSize;
+      mainLocY = mainLocY + planterMoves[planterMoveDir][1] * cellSize;
+
+      // if we've moved off the edge, wrap around
+      if (mainLocX > (canva - 1) * cellSize) {
+        mainLocX = 0;
+      }
+      if (mainLocX < 0) {
+        mainLocX = (canva - 1) * cellSize;
+      }
+      if (mainLocY > (canva - 1) * cellSize) {
+        mainLocY = 0;
+      }
+      if (mainLocY < 0) {
+        mainLocY = (canva - 1) * cellSize;
+      }
+
+      // add to the countdown for the next change of direction
+      planterChangeCount += 1;
+
+      // reset the counter to wait for the next move
+      timeNow = millis();
+
+      // if it's time to pick a new direction, pick a new direction
+      if (planterChangeCount > planterChangeDirWait) {
+        planterMoveDir = Math.floor(Math.random() * 8);
+        planterChangeCount = 0;
+      }
+
+      // add one tick to the planting waiting counter
+      plantingWaitCount += 1;
+
+      // if it's time to plant ..
+      if (plantingWaitCount > plantingWait) {
+        flowerList.push(new flower(mainLocX, mainLocY));
+        plantingWaitCount = 0;
+      }
+    } // end of loop that activates whenever the planter moves
+
+    // show the planter
+    rect(mainLocX, mainLocY, cellSize, cellSize);
+    // show the flowers
+    for (let q = 0; q < flowerList.length; q++) {
+      // draw the center red pixel
+      noStroke();
+      fill(255, 0, 0);
+      rect(flowerList[q].x, flowerList[q].y, cellSize, cellSize);
+
+      let inX = flowerList[q].x - cellSize * 2;
+      let inY = flowerList[q].y - cellSize * 2;
+
+      // draw the outer ring
+      fill(
+        flowerList[q].outerR,
+        flowerList[q].outerG,
+        flowerList[q].outerB,
+        150
+      );
+      for (let h = 0; h < flowerList[q].outerPattern.length; h++) {
+        for (let i = 0; i < flowerList[q].outerPattern[h].length; i++) {
+          if (flowerList[q].outerPattern[h][i] === 1) {
+            rect(inX + i * cellSize, inY + h * cellSize, cellSize, cellSize);
+          }
         }
       }
-    }
 
-    // draw the inner ring
-    fill(flowerList[q].innerR, flowerList[q].innerG, flowerList[q].innerB, 180);
-    for (let f = 0; f < flowerList[q].innerPattern.length; f++) {
-      for (let g = 0; g < flowerList[q].innerPattern[f].length; g++) {
-        if (flowerList[q].innerPattern[f][g] === 1) {
-          rect(inX + g * cellSize, inY + f * cellSize, cellSize, cellSize);
+      // draw the inner ring
+      fill(
+        flowerList[q].innerR,
+        flowerList[q].innerG,
+        flowerList[q].innerB,
+        180
+      );
+      for (let f = 0; f < flowerList[q].innerPattern.length; f++) {
+        for (let g = 0; g < flowerList[q].innerPattern[f].length; g++) {
+          if (flowerList[q].innerPattern[f][g] === 1) {
+            rect(inX + g * cellSize, inY + f * cellSize, cellSize, cellSize);
+          }
         }
       }
     }
@@ -362,36 +407,4 @@ function flower(x, y) {
   this.outerB = outerColorSet[2];
 }
 
-function displayWords() {
-  let xPos = 10;
-  let yPos = 15;
-  // get each line of the opener. "p" is each line, "q" is each character
-  for (let p = 0; p < opener.length; p++) {
-    // go character by character through the line
-    for (let q = 0; q < opener[p].length; q++) {
-      // get the array for this letter ...
-      let letterArray = letters[opener[p][q]];
-      // ... then iterate through it
-      for (let r = 0; r < letterArray.length; r++) {
-        for (let s = 0; s < letterArray[r].length; s++) {
-          if (letterArray[r][s] === 1) {
-            fill(255, 255, 0);
-            rect(xPos, yPos, cellSize, cellSize);
-            xPos += cellSize;
-          }
-        }
-        // move down one cell, and back to the beginning of the character location ...
-        yPos += cellSize;
-        xPos = xPos - letterArray[r].length * cellSize;
-      }
-      // when the character is done, move the cursor up to where the next letter will begin. Add an extra cell of x-axis space between letters ..
-      yPos = yPos + letterArray.length * cellSize;
-      xPos = xPos + cellSize;
-    }
-    // set xPos go back to beginning of the text lines; yPos goes down by two cell sizes 
-    xPos = 10;
-    yPos += (cellSize * 2);
-    
-  }
-}
-
+function displayWords() {}
