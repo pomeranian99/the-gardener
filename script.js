@@ -157,10 +157,12 @@ function draw() {
           }
           // move down one cell, and back to the beginning of the character location ...
           yPos += cellSize;
-          xPos = xPos - letterArray[r].length * cellSize;
+          xPos = xPos - (4 * cellSize);
+          // xPos = xPos - letterArray[r].length * cellSize;
         }
-        // when the character is done, move the cursor up to where the next letter will begin. Add an extra cell of x-axis space between letters ..
-        yPos = yPos + letterArray.length * cellSize;
+        // when the character is done, move the cursor up to where the next letter will begin. Add an extra cell of x-axis space between letters ...
+        yPos = yPos + (5 * cellSize);
+        // yPos = yPos + (letterArray.length * cellSize);
         xPos = xPos + cellSize;
       }
       // set xPos go back to beginning of the text lines; yPos goes down by two cell sizes
