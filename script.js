@@ -144,10 +144,12 @@ function draw() {
         // ... then iterate through it
         for (let r = 0; r < letterArray.length; r++) {
           for (let s = 0; s < letterArray[r].length; s++) {
-        
             if (letterArray[r][s] == 1) {
-              fill(255, 255, 0);
-              rect(xPos * cellSize, yPos * cellSize, cellSize, cellSize);
+              fill('red');
+              let xHere = xPos * cellSize;
+              let yHere = yPos * cellSize;
+              
+              rect(xHere, yHere, cellSize, cellSize);
               xPos += cellSize;
             }
           }
