@@ -118,6 +118,7 @@ var letters = {
 var timeNow = 0;
 
 function setup() {
+  frameRate(2);
   if (screen.width > 680) {
     cellSize = 10;
   }
@@ -148,7 +149,8 @@ function draw() {
               fill('red');
               let xHere = xPos * cellSize;
               let yHere = yPos * cellSize;
-              
+              console.log("xPos is " + xPos + " and Ypos is " + yPos);
+              console.log("x is " + xHere + " and y is " + yHere);
               rect(xHere, yHere, cellSize, cellSize);
               xPos += cellSize;
             }
