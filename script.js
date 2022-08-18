@@ -149,10 +149,12 @@ function draw() {
               fill('red');
               let xHere = xPos * cellSize;
               let yHere = yPos * cellSize;
-              console.log("xPos is " + xPos + " and Ypos is " + yPos);
-              console.log("x is " + xHere + " and y is " + yHere);
+              console.log("with a ONE xPos is " + xPos + " and yPos is " + yPos);
               rect(xHere, yHere, cellSize, cellSize);
               xPos += cellSize;
+            } else {
+              xPos += cellSize;
+              console.log("with a ZERO xPos is " + xPos + " and yPos is " + yPos);
             }
           }
           // move down one cell, and back to the beginning of the character location ...
