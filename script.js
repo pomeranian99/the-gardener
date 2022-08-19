@@ -169,16 +169,9 @@ function setup() {
   timeNow = millis(); // starting time for entire simulation
   background(0);
   
-  let firstFlowerLocs = [
-    [10, 14],
-    [17, 14],
-    [22, 14]
-  ];
   
-  for (let n = 0; n < )
-
   let xPos = 10 * cellSize;
-  let yPos = 23 * cellSize;
+  let yPos = 15 * cellSize;
   // get each line of the opener. "p" is each line, "q" is each character
   for (let p = 0; p < opener.length; p++) {
     // go character by character through the line
@@ -466,4 +459,4 @@ function flower(x, y) {
   this.outerB = outerColorSet[2];
 }
 
-function displayWords() {}
+
