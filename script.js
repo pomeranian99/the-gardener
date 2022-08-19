@@ -61,6 +61,14 @@ var colors = [
     [255, 0, 43],
   ];
   
+var openerColors = [
+  [139,69,19],
+  [165,42,42],
+  [210,105,30],
+  [210,105,30]
+];
+
+var colorCount = 0;
 
 var opener = [
   ["space", "space", "t", "h", "e", "space", "space", "space"],
@@ -182,12 +190,10 @@ function setup() {
       for (let r = 0; r < letterArray.length; r++) {
         for (let s = 0; s < letterArray[r].length; s++) {
           if (letterArray[r][s] == 1) {
-            fill("red");
-            // console.log("with a ONE xPos is " + xPos + " and yPos is " + yPos);
+            fill("brown");
             rect(xPos, yPos, cellSize, cellSize);
             xPos += cellSize;
           } else {
-            // console.log("with a ZERO xPos is " + xPos + " and yPos is " + yPos);
             xPos += cellSize;
           }
         } // end of loop printing one row of a single character, so we ... 
