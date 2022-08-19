@@ -1,5 +1,6 @@
 var tempFlowerCount = 0;
 
+// let's get those sounds ...
 var sound = new Howl({
   src: ['https://cdn.glitch.global/b217ffbd-8d12-4057-9ea4-22f341ae632e/the-gardener.mp3?v=1660938039843'],
   autoplay: true,
@@ -13,8 +14,6 @@ var sound2 = new Howl({
   loop: false,
   volume: 0.5,
 });
-
-
 
 var soundYetToPlay = true;
 var firstPlant = true;
@@ -233,6 +232,7 @@ function setup() {
 function draw() {
   if (mouseIsPressed) {
     openScreen = false;
+    // start the main music playing, and never start it again, because it just loops and loops indefinitely ...
     if (soundYetToPlay) {
       sound.play;
       soundYetToPlay = false;
@@ -241,7 +241,9 @@ function draw() {
   
   // start with the open screen, don't run the main logic unless they click
   if (openScreen == true) {
+    // if we're still on the open-screen, nothing happens! No logic or actions in here!
   } else {
+    // we do all the graphics, 60 times a second ...
     clear();
     background(0);
     noStroke();
@@ -294,7 +296,11 @@ function draw() {
       // if it's time to plant ..
       if (plantingWaitCount > plantingWait) {
         flowerList.push(new flower(mainLocX, mainLocY));
-        sound2.play();
+        if (firstPlant) {
+          firstPlant = false;
+        } else {
+          sound2.play();
+        }
         plantingWaitCount = 0;
       }
     } // end of loop that activates whenever the planter moves
@@ -433,44 +439,6 @@ function flower(x, y) {
       [0, 1, 0, 1, 0],
     ],
   ];
-
-  
-  /* 
-  let colors = [
-    [255, 0, 0],
-    [255, 85, 0],
-    [255, 128, 0],
-    [255, 170, 0],
-    [255, 213, 0],
-    [255, 255, 0],
-    [212, 255, 0],
-    [170, 255, 0],
-    [128, 255, 0],
-    [85, 255, 0],
-    [43, 255, 0],
-    [0, 255, 85],
-    [0, 255, 170],
-    [0, 255, 255],
-    [0, 213, 255],
-    [0, 170, 255],
-    [0, 128, 255],
-    [0, 85, 255],
-    [0, 42, 255],
-    [0, 0, 255],
-    [43, 0, 255],
-    [85, 0, 255],
-    [128, 0, 255],
-    [170, 0, 255],
-    [212, 0, 255],
-    [255, 0, 255],
-    [255, 0, 212],
-    [255, 0, 170],
-    [255, 0, 128],
-    [255, 0, 85],
-    [255, 0, 43],
-  ];
-  
-  */
 
   this.x = x;
   this.y = y;
