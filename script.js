@@ -156,17 +156,17 @@ function draw() {
             }
           }
           // move down one cell, and back to the beginning of the character location ...
-          yPos += cellSize;
           xPos = xPos - (4 * cellSize);
+          yPos += cellSize;
         }
         // when the character is done, move the cursor up to where the next letter will begin. Add an extra cell of x-axis space between letters ...
         yPos = yPos - (5 * cellSize);
         xPos = xPos + cellSize;
-      }
+      } // end of function reading characters in a line
       // at end of a line of text, set xPos go back to beginning of the text lines; yPos goes down by two cell sizes
       xPos = 10 * cellSize;
       yPos += cellSize * 2;
-    }
+    } // end of function reading line by line in the message
   } else {
     noStroke();
     fill(51, 119, 255, planterAlpha);
