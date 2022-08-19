@@ -5,12 +5,19 @@ var sound = new Howl({
   autoplay: true,
   loop: true,
   volume: 0.5,
-  // onend: function() {
-  //   console.log('Finished!');
-  // }
 });
 
+var sound2 = new Howl({
+  src: ['https://cdn.glitch.global/b217ffbd-8d12-4057-9ea4-22f341ae632e/crunch.mp3?v=1660940632819'],
+  autoplay: true,
+  loop: false,
+  volume: 0.5,
+});
+
+
+
 var soundYetToPlay = true;
+var firstPlant = true;
 var openScreen = true;
 var canva = 60; // number of rows and columns
 var cellSize = 5; // size of each cell //
@@ -287,6 +294,7 @@ function draw() {
       // if it's time to plant ..
       if (plantingWaitCount > plantingWait) {
         flowerList.push(new flower(mainLocX, mainLocY));
+        sound2.play();
         plantingWaitCount = 0;
       }
     } // end of loop that activates whenever the planter moves
