@@ -190,7 +190,7 @@ function setup() {
       for (let r = 0; r < letterArray.length; r++) {
         for (let s = 0; s < letterArray[r].length; s++) {
           if (letterArray[r][s] == 1) {
-            fill("brown");
+            fill(openerColors[colorCount][0], openerColors[colorCount][1], openerColors[colorCount][2]);
             rect(xPos, yPos, cellSize, cellSize);
             xPos += cellSize;
           } else {
@@ -208,10 +208,14 @@ function setup() {
     // at end of a line of text, set xPos go back to beginning of the text lines; yPos goes down by two cell sizes
     xPos = 10 * cellSize;
     yPos += cellSize * 7;
+    colorCount++;
   } // end of function reading line by line in the message
 }
 
 function draw() {
+  if (mouseIsPressed) {
+    openScreen = false;
+  };
   
   // start with the open screen, don't run the main logic unless they click
   if (openScreen == true) {
