@@ -296,11 +296,12 @@ function draw() {
       // if it's time to plant ..
       if (plantingWaitCount > plantingWait) {
         flowerList.push(new flower(mainLocX, mainLocY));
-        if (firstPlant) {
-          firstPlant = false;
-        } else {
-          sound2.play();
-        }
+        // if (firstPlant) {
+        //   firstPlant = false;
+        // } else {
+        //   sound2.play();
+        // }
+        sound2.play();
         plantingWaitCount = 0;
       }
     } // end of loop that activates whenever the planter moves
