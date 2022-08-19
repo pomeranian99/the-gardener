@@ -144,9 +144,9 @@ function setup() {
             rect(xPos, yPos, cellSize, cellSize);
             xPos += cellSize;
           } else {
-            xPos += cellSize;
             console.log("with a ZERO xPos is " + xPos + " and yPos is " + yPos);
-          }
+            xPos += cellSize;
+          } // end of 
         }
         // move down one cell, and back to the beginning of the character location ...
         xPos = xPos - 4 * cellSize;
@@ -163,8 +163,8 @@ function setup() {
 }
 
 function draw() {
-  clear();
-  background(0);
+  // clear();
+  // background(0);
 
   // start with the open screen, don't run the main logic unless they click
   if (openScreen == true) {
