@@ -1,5 +1,16 @@
 var tempFlowerCount = 0;
 
+var sound = new Howl({
+  src: ['https://cdn.glitch.global/b217ffbd-8d12-4057-9ea4-22f341ae632e/the-gardener.mp3?v=1660938039843'],
+  autoplay: true,
+  loop: true,
+  volume: 0.5,
+  // onend: function() {
+  //   console.log('Finished!');
+  // }
+});
+
+var soundYetToPlay = true;
 var openScreen = true;
 var canva = 60; // number of rows and columns
 var cellSize = 5; // size of each cell //
@@ -215,6 +226,10 @@ function setup() {
 function draw() {
   if (mouseIsPressed) {
     openScreen = false;
+    if (soundYetToPlay) {
+      sound.play;
+      soundYetToPlay = false;
+    }
   };
   
   // start with the open screen, don't run the main logic unless they click
