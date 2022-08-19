@@ -126,6 +126,40 @@ function setup() {
   mainLocX = (canva * cellSize) / 2;
   mainLocY = (canva * cellSize) / 2;
   timeNow = millis(); // starting time for entire simulation
+
+  let xPos = 10 * cellSize;
+  let yPos = 15 * cellSize;
+  // get each line of the opener. "p" is each line, "q" is each character
+  for (let p = 0; p < opener.length; p++) {
+    // go character by character through the line
+    for (let q = 0; q < opener[p].length; q++) {
+      // get the array for this letter ...
+      let letterArray = letters[opener[p][q]];
+      // ... then iterate through it
+      for (let r = 0; r < letterArray.length; r++) {
+        for (let s = 0; s < letterArray[r].length; s++) {
+          if (letterArray[r][s] == 1) {
+            fill("red");
+            console.log("with a ONE xPos is " + xPos + " and yPos is " + yPos);
+            rect(xPos, yPos, cellSize, cellSize);
+            xPos += cellSize;
+          } else {
+            xPos += cellSize;
+            console.log("with a ZERO xPos is " + xPos + " and yPos is " + yPos);
+          }
+        }
+        // move down one cell, and back to the beginning of the character location ...
+        xPos = xPos - 4 * cellSize;
+        yPos += cellSize;
+      }
+      // when the character is done, move the cursor up to where the next letter will begin. Add an extra cell of x-axis space between letters ...
+      yPos = yPos - 5 * cellSize;
+      xPos = xPos + cellSize;
+    } // end of function reading characters in a line
+    // at end of a line of text, set xPos go back to beginning of the text lines; yPos goes down by two cell sizes
+    xPos = 10 * cellSize;
+    yPos += cellSize * 2;
+  } // end of function reading line by line in the message
 }
 
 function draw() {
@@ -134,39 +168,6 @@ function draw() {
 
   // start with the open screen, don't run the main logic unless they click
   if (openScreen == true) {
-    let xPos = 10 * cellSize;
-    let yPos = 15 * cellSize;
-    // get each line of the opener. "p" is each line, "q" is each character
-    for (let p = 0; p < opener.length; p++) {
-      // go character by character through the line
-      for (let q = 0; q < opener[p].length; q++) {
-        // get the array for this letter ...
-        let letterArray = letters[opener[p][q]];
-        // ... then iterate through it
-        for (let r = 0; r < letterArray.length; r++) {
-          for (let s = 0; s < letterArray[r].length; s++) {
-            if (letterArray[r][s] == 1) {
-              fill('red');
-              console.log("with a ONE xPos is " + xPos + " and yPos is " + yPos);
-              rect(xPos, yPos, cellSize, cellSize);
-              xPos += cellSize;
-            } else {
-              xPos += cellSize;
-              console.log("with a ZERO xPos is " + xPos + " and yPos is " + yPos);
-            }
-          }
-          // move down one cell, and back to the beginning of the character location ...
-          xPos = xPos - (4 * cellSize);
-          yPos += cellSize;
-        }
-        // when the character is done, move the cursor up to where the next letter will begin. Add an extra cell of x-axis space between letters ...
-        yPos = yPos - (5 * cellSize);
-        xPos = xPos + cellSize;
-      } // end of function reading characters in a line
-      // at end of a line of text, set xPos go back to beginning of the text lines; yPos goes down by two cell sizes
-      xPos = 10 * cellSize;
-      yPos += cellSize * 2;
-    } // end of function reading line by line in the message
   } else {
     noStroke();
     fill(51, 119, 255, planterAlpha);
