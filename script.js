@@ -1,6 +1,6 @@
 var tempFlowerCount = 0;
 
-var openScreen = true;
+var openScreen = false;
 var canva = 60; // number of rows and columns
 var cellSize = 5; // size of each cell //
 var flowerList = [];
@@ -31,17 +31,16 @@ var opener = [
   ["space", "space", "t", "h", "e", "space", "space", "space"],
   ["g", "a", "r", "d", "e", "n", "e", "r"],
   ["space", "space", "space", "space", "space", "space", "space", "space"],
-  ["space", "space", "arrow", "space", "space", "space", "space", "space"],
-  ["space", "space", "r", "u", "n", "space", "space", "space"],
+  ["space", "s", "t", "a", "r", "t", "space", "arrow"],
 ];
 
 var letters = {
   t: [
-    [1, 1, 1, 0],
-    [0, 1, 0, 0],
-    [0, 1, 0, 0],
-    [0, 1, 0, 0],
-    [0, 1, 0, 0],
+    [0, 1, 1, 1],
+    [0, 0, 1, 0],
+    [0, 0, 1, 0],
+    [0, 0, 1, 0],
+    [0, 0, 1, 0],
   ],
   h: [
     [1, 0, 0, 1],
@@ -86,10 +85,10 @@ var letters = {
     [1, 0, 0, 1],
   ],
   r: [
-    [0, 1, 1, 0],
+    [1, 1, 1, 0],
     [1, 0, 0, 1],
-    [1, 1, 1, 1],
-    [1, 0, 0, 1],
+    [1, 1, 1, 0],
+    [1, 0, 1, 0],
     [1, 0, 0, 1],
   ],
   u: [
@@ -106,19 +105,27 @@ var letters = {
     [1, 1, 1, 0],
     [1, 1, 0, 0],
   ],
+  s: [
+    [0, 1, 1, 1],
+    [1, 0, 0, 0],
+    [0, 1, 1, 0],
+    [0, 0, 0, 1],
+    [1, 1, 1, 0],
+  ],
   space: [
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
-  ],
+  ]
 };
 
 var timeNow = 0;
 
 function setup() {
-  frameRate(2);
+  background(0);
+  // frameRate(2);
   if (screen.width > 680) {
     cellSize = 10;
   }
@@ -140,11 +147,11 @@ function setup() {
         for (let s = 0; s < letterArray[r].length; s++) {
           if (letterArray[r][s] == 1) {
             fill("red");
-            console.log("with a ONE xPos is " + xPos + " and yPos is " + yPos);
+            // console.log("with a ONE xPos is " + xPos + " and yPos is " + yPos);
             rect(xPos, yPos, cellSize, cellSize);
             xPos += cellSize;
           } else {
-            console.log("with a ZERO xPos is " + xPos + " and yPos is " + yPos);
+            // console.log("with a ZERO xPos is " + xPos + " and yPos is " + yPos);
             xPos += cellSize;
           }
         } // end of loop printing one row of a single character, so we ... 
@@ -158,17 +165,17 @@ function setup() {
     } // end of function reading characters in a line
     // at end of a line of text, set xPos go back to beginning of the text lines; yPos goes down by two cell sizes
     xPos = 10 * cellSize;
-    yPos += cellSize * 2;
+    yPos += cellSize * 7;
   } // end of function reading line by line in the message
 }
 
 function draw() {
-  // clear();
-  // background(0);
-
+  
   // start with the open screen, don't run the main logic unless they click
   if (openScreen == true) {
   } else {
+    clear();
+    background(0);
     noStroke();
     fill(51, 119, 255, planterAlpha);
 
