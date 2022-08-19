@@ -1,6 +1,6 @@
 var tempFlowerCount = 0;
 
-var openScreen = false;
+var openScreen = true;
 var canva = 60; // number of rows and columns
 var cellSize = 5; // size of each cell //
 var flowerList = [];
@@ -26,6 +26,41 @@ var planterMoves = [
   [-1, 0],
   [-1, -1],
 ];
+
+var colors = [
+    [255, 0, 0],
+    [255, 85, 0],
+    [255, 128, 0],
+    [255, 170, 0],
+    [255, 213, 0],
+    [255, 255, 0],
+    [212, 255, 0],
+    [170, 255, 0],
+    [128, 255, 0],
+    [85, 255, 0],
+    [43, 255, 0],
+    [0, 255, 85],
+    [0, 255, 170],
+    [0, 255, 255],
+    [0, 213, 255],
+    [0, 170, 255],
+    [0, 128, 255],
+    [0, 85, 255],
+    [0, 42, 255],
+    [0, 0, 255],
+    [43, 0, 255],
+    [85, 0, 255],
+    [128, 0, 255],
+    [170, 0, 255],
+    [212, 0, 255],
+    [255, 0, 255],
+    [255, 0, 212],
+    [255, 0, 170],
+    [255, 0, 128],
+    [255, 0, 85],
+    [255, 0, 43],
+  ];
+  
 
 var opener = [
   ["space", "space", "t", "h", "e", "space", "space", "space"],
@@ -124,7 +159,6 @@ var letters = {
 var timeNow = 0;
 
 function setup() {
-  background(0);
   // frameRate(2);
   if (screen.width > 680) {
     cellSize = 10;
@@ -133,9 +167,18 @@ function setup() {
   mainLocX = (canva * cellSize) / 2;
   mainLocY = (canva * cellSize) / 2;
   timeNow = millis(); // starting time for entire simulation
+  background(0);
+  
+  let firstFlowerLocs = [
+    [10, 14],
+    [17, 14],
+    [22, 14]
+  ];
+  
+  for (let n = 0; n < )
 
   let xPos = 10 * cellSize;
-  let yPos = 15 * cellSize;
+  let yPos = 23 * cellSize;
   // get each line of the opener. "p" is each line, "q" is each character
   for (let p = 0; p < opener.length; p++) {
     // go character by character through the line
@@ -365,6 +408,8 @@ function flower(x, y) {
     ],
   ];
 
+  
+  /* 
   let colors = [
     [255, 0, 0],
     [255, 85, 0],
@@ -398,6 +443,8 @@ function flower(x, y) {
     [255, 0, 85],
     [255, 0, 43],
   ];
+  
+  */
 
   this.x = x;
   this.y = y;
