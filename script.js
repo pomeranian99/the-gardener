@@ -5,14 +5,14 @@ var sound = new Howl({
   src: ['https://cdn.glitch.global/b217ffbd-8d12-4057-9ea4-22f341ae632e/the-gardener.mp3?v=1660961094259'],
   autoplay: true,
   loop: true,
-  volume: 0.5,
+  volume: 0.3,
 });
 
 var sound2 = new Howl({
   src: ['https://cdn.glitch.global/b217ffbd-8d12-4057-9ea4-22f341ae632e/crunch.mp3?v=1660940632819'],
   autoplay: true,
   loop: false,
-  volume: 0.5,
+  volume: 0.3,
 });
 
 var soundYetToPlay = true;
@@ -226,13 +226,13 @@ function setup() {
     xPos = 10 * cellSize;
     yPos += cellSize * 7;
     colorCount++;
-  } // end of function reading line by line in the message
+  } 
 }
 
 function draw() {
   if (mouseIsPressed) {
     openScreen = false;
-    // start the main music playing, and never start it again, because it just loops and loops indefinitely ...
+    // start the main music playing once, and never start it again, because it just loops indefinitely ...
     if (soundYetToPlay) {
       sound.play;
       soundYetToPlay = false;
@@ -344,7 +344,7 @@ function draw() {
       }
     }
   }
-} // end of draw() function here
+} 
 
 function flower(x, y) {
   let flowerInner = [
