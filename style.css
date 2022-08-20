@@ -1,5 +1,11 @@
 /* CSS files add styling rules to your content */
 
+@media only screen and (min-width: 600px){
+  #footer {
+    font-size: 50px;
+  }
+}
+
 body {
   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
   margin: 2em;
@@ -34,3 +40,4 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1.5vw;
 }
+
