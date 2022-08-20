@@ -1,15 +1,24 @@
 The Pixel Gardener
 ==================
 
-I enjoy making P5 sketches that use chunky pixellated grids.
+### Instructions
 
-I was playing around with a function that generated random flowers by blending seven possible interior patterns with four possible exterior patterns (and a few dozen colors), so something like 26,000 possible flowers ...
+Leave it open in separate browser window ...
 
-... and got the idea to create a sketch where a little pixel gardener wanders the screen, planting flowers while a chill loop plays.
+... and the little pixel -- the "gardener" -- will wander slowly and randomly around the screen ...
 
-Let it run for 10 minutes or so and the gardens get pretty trippy.
+... and plant flowers. It plays a little chill loop of music.
 
-This is software that exists for essentially _no purpose_, lol. 
+If you leave it running for 15 minutes the gardens get quite complicated and pretty!
+
+### Can I run it in the background?
+
+Sure! Just make sure you can see at least a bit of the screen in behind your active browser window. Otherwise the app goes to sleep; you'll hear the music but the planting is suspended for some reason.
+
+
+### Why?
+
+Lol, no reason. This is software that exists for essentially _no purpose_.
 
 A ... screensaver, of sorts?
 
