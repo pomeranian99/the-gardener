@@ -1,11 +1,5 @@
 /* CSS files add styling rules to your content */
 
-@media only screen and (min-width: 600px){
-  #footer {
-    font-size: 50px;
-  }
-}
-
 body {
   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
   margin: 2em;
@@ -16,8 +10,8 @@ h1 {
   color: #373fff;
 }
 
-
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -27,17 +21,16 @@ body {
 
   /* This centers our sketch horizontally. */
   justify-content: center;
-  
+
   /* This centers our sketch vertically. */
   align-items: center;
-
 }
 
-#footer {
-  position:fixed;
-  bottom:0;
-  margin-bottom:40px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.5vw;
+.footer {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 40px;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
 }
 
