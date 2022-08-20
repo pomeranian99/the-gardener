@@ -7,9 +7,13 @@ Leave it open in separate browser window ...
 
 ... and the little pixel -- the "gardener" -- will wander slowly and randomly around the screen ...
 
-... and plant flowers. It plays a little chill loop of music.
+... and plant random flowers. It plays a little chill loop of music.
 
 If you leave it running for 15 minutes the gardens get quite complicated and pretty!
+
+(There are over 26,000 different possible flowers, in terms of shape and color combo.)
+
+I wrote the music in GarageBand on the iphone.
 
 ### Can I run it in the background?
 
