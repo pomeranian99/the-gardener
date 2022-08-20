@@ -185,7 +185,8 @@ function setup() {
   if (screen.width > 680) {
     cellSize = 10;
   }
-  createCanvas(canva * cellSize, canva * cellSize);
+  var canvas = createCanvas(canva * cellSize, canva * cellSize);
+  canvas.parent('sketchHolder');
   mainLocX = (canva * cellSize) / 2;
   mainLocY = (canva * cellSize) / 2;
   timeNow = millis(); // starting time for entire simulation
