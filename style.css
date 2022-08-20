@@ -26,3 +26,11 @@ body {
   align-items: center;
 
 }
+
+#footer {
+  position:fixed;
+  bottom:0;
+  margin-bottom:40px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5vw;
+}
