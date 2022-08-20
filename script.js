@@ -23,8 +23,6 @@ var cellSize = 5; // size of each cell //
 var flowerList = [];
 var mainLocX; // starting position, as yet undeclared
 var mainLocY; // starting position, as yet undeclared
-// var mainLocX = (canva * cellSize) / 2; // starting position
-// var mainLocY = (canva * cellSize) / 2; // starting position
 var plantingWait = 13; // how many moves before the planter plants
 var plantingWaitCount = 0; // start the planting wait counter ...
 var planterMoveWait = 800; // how long the planter waits before moving
@@ -184,7 +182,6 @@ var letters = {
 var timeNow = 0;
 
 function setup() {
-  // frameRate(2);
   if (screen.width > 680) {
     cellSize = 10;
   }
@@ -243,7 +240,7 @@ function draw() {
   if (openScreen == true) {
     // if we're still on the open-screen, nothing happens! No logic or actions in here!
   } else {
-    // we do all the graphics, 60 times a second ...
+    // we do all the graphics
     clear();
     background(0);
     noStroke();
