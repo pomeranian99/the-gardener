@@ -184,6 +184,7 @@ function setup() {
     cellSize = 10;
   }
   var canvas = createCanvas(canva * cellSize, canva * cellSize);
+  // place the canvas on the DOM, so we can position other HTML elements below it
   canvas.parent('sketchHolder');
   mainLocX = (canva * cellSize) / 2;
   mainLocY = (canva * cellSize) / 2;
@@ -227,7 +228,6 @@ function setup() {
 
 function draw() {
   if (mouseIsPressed) {
-    console.log("mouse was pressed!");
     openScreen = false;
     // start the main music playing once, and never start it again, because it just loops indefinitely ...
     if (soundYetToPlay) {
