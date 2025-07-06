@@ -2,13 +2,13 @@ var tempFlowerCount = 0;
 
 // let's get those sounds ...
 var sound = new Howl({
-  src: ['https://cdn.glitch.global/b217ffbd-8d12-4057-9ea4-22f341ae632e/the-gardener.mp3?v=1660961094259'],
+  src: ['the-gardener.mp3'],
   loop: true,
   volume: 0.3,
 });
 
 var sound2 = new Howl({
-  src: ['https://cdn.glitch.global/b217ffbd-8d12-4057-9ea4-22f341ae632e/crunch.mp3?v=1660940632819'],
+  src: ['crunch.mp3'],
   loop: false,
   volume: 0.3,
 });
